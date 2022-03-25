@@ -1,16 +1,16 @@
 [
   {
     "id": "BKP-1023",
-    "name": "Fortune Multi-Color Backpack",
+    "name": "Fortune Backpack",
     "price": "1500",
     "image": "https://kinbenaki.com/10766-thickbox_default/fortune-multi-color-waterproof-backpack.jpg"
   },
 
   {
     "id": "BKP-2828",
-    "name": "ARCTIC HUNTER Travel Backpack",
+    "name": "Arctic Hunter Backpack",
     "price": "2700",
-    "image": "https://kinbenaki.com/13683-thickbox_default/arctic-hunter-multi-functional-travel-usb-recharging-laptop-backpack.jpg"
+    "image": "https://kinbenaki.com/7994-thickbox_default/arctic-hunter-blue-travel-bag-usb-charging-men-s-bag.jpg"
   },
 
   {
@@ -64,7 +64,7 @@
 
   {
     "id": "BKP-0470",
-    "name": "A&ME Blue Abstract Print Backpack",
+    "name": "A&ME Abstract Backpack",
     "price": "1100",
     "image": "https://kinbenaki.com/1548-thickbox_default/ame-blue-abstract-print-backpack.jpg"
   },

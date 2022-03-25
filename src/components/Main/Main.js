@@ -7,19 +7,19 @@ const Main = () => {
   return (
     <main>
       <Container>
-        <div className="text-center mb-4">
+        <div className="text-center mb-5">
           <h1>Choose the Best Backpack</h1>
-          <h3>
-            You can choose maximum 4 product and choose button will provide you
-            best one
-          </h3>
+          <h4>
+            You can add maximum 4 products to cart & Click choose button to
+            choose the best
+          </h4>
         </div>
 
         <Row>
-          <Col sm={8}>
+          <Col sm md={7} lg={9}>
             <Products />
           </Col>
-          <Col sm={4}>
+          <Col sm md={5} lg={3}>
             <Cart />
           </Col>
         </Row>
