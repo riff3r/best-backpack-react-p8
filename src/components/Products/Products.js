@@ -3,10 +3,7 @@ import { Row } from "react-bootstrap";
 import Product from "../Product/Product";
 
 const Products = ({ onCart }) => {
-  console.log(onCart);
   const [products, setProducts] = useState([]);
-
-  console.log(products);
 
   useEffect(() => {
     fetch("products.json")

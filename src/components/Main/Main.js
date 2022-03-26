@@ -10,6 +10,10 @@ const Main = () => {
     setCart((prevState) => [...prevState, item]);
   };
 
+  const handleSelected = (item) => {
+    setCart(item);
+  };
+
   return (
     <main>
       <Container>
@@ -26,7 +30,7 @@ const Main = () => {
             <Products onCart={handleCart} />
           </Col>
           <Col sm md={5} lg={3}>
-            <Cart items={cart} />
+            <Cart handleSelected={handleSelected} items={cart} />
           </Col>
         </Row>
       </Container>
