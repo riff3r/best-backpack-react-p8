@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, Col, Button } from "react-bootstrap";
 
 const Product = (props) => {
-  console.log(props);
   const { name, price, image } = props.item;
-  console.log(image, price);
+  const { onCart } = props;
+
+  const addToCartHandler = (item) => {
+    onCart(item);
+  };
   return (
     <Col md={6} lg={4}>
       <Card>
@@ -15,7 +18,7 @@ const Product = (props) => {
           <Card.Text>
             <strong>Price: {price} Tk</strong>
           </Card.Text>
-          <Button variant="dark">
+          <Button variant="dark" onClick={() => addToCartHandler(props.item)}>
             Add To Cart {<FontAwesomeIcon icon={faShoppingCart} />}
           </Button>
         </Card.Body>

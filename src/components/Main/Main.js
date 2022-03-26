@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Cart from "../Cart/Cart";
 import Products from "../Products/Products";
 
 const Main = () => {
+  const [cart, setCart] = useState([]);
+
+  const handleCart = (item) => {
+    setCart((prevState) => [...prevState, item]);
+  };
+
   return (
     <main>
       <Container>
@@ -17,10 +23,10 @@ const Main = () => {
 
         <Row>
           <Col sm md={7} lg={9}>
-            <Products />
+            <Products onCart={handleCart} />
           </Col>
           <Col sm md={5} lg={3}>
-            <Cart />
+            <Cart item={cart} />
           </Col>
         </Row>
       </Container>

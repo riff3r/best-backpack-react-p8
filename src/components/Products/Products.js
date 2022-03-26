@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import Product from "../Product/Product";
 
-const Products = () => {
+const Products = ({ onCart }) => {
+  console.log(onCart);
   const [products, setProducts] = useState([]);
 
   console.log(products);
@@ -16,7 +17,7 @@ const Products = () => {
   return (
     <Row className="g-3">
       {products.map((product) => (
-        <Product key={product.id} item={product} />
+        <Product onCart={onCart} key={product.id} item={product} />
       ))}
     </Row>
   );

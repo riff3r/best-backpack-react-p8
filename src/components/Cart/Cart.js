@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 
-const Cart = () => {
+const Cart = ({ item }) => {
+  console.log(item);
   return (
     <div>
       <Card border="light">
