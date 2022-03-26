@@ -12,7 +12,7 @@ const Products = ({ onCart }) => {
   }, []);
 
   return (
-    <Row className="g-3">
+    <Row className="g-3 mb-5">
       {products.map((product) => (
         <Product onCart={onCart} key={product.id} item={product} />
       ))}

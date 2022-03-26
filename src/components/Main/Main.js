@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Answer from "../Answer/Answer";
 import Cart from "../Cart/Cart";
 import Products from "../Products/Products";
 import Modal from "../utility/Modal";
@@ -7,7 +8,6 @@ import Modal from "../utility/Modal";
 const Main = () => {
   const [modal, setModal] = useState({ status: false, error: "" });
   const [cart, setCart] = useState([]);
-  console.log(cart);
 
   const handleCart = (item) => {
     const checkDuplicate = cart?.find((cartItem) => cartItem.id === item.id);
@@ -17,7 +17,6 @@ const Main = () => {
       return;
     }
 
-    // console.log(checkDuplicate);
     if (cart.length > 3) {
       setModal({ status: true, error: "You Can't add more then 4 product" });
       return;
@@ -51,12 +50,15 @@ const Main = () => {
         <Row>
           <Col sm md={7} lg={8}>
             <Products onCart={handleCart} />
+            <Answer />
           </Col>
           <Col sm md={5} lg={4}>
             <Cart handleSelected={handleSelected} items={cart} />
           </Col>
         </Row>
       </Container>
+
+      <Container></Container>
     </main>
   );
 };
