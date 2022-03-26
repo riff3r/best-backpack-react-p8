@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Cart from "../Cart/Cart";
 import Products from "../Products/Products";
+import Modal from "../utility/Modal";
 
 const Main = () => {
+  const [modal, setModal] = useState({ status: false, error: "" });
   const [cart, setCart] = useState([]);
   console.log(cart);
 
   const handleCart = (item) => {
     const checkDuplicate = cart?.find((cartItem) => cartItem.id === item.id);
 
-    if (checkDuplicate) return;
+    if (checkDuplicate) {
+      setModal({ status: true, error: "You cannot add same product twice" });
+      return;
+    }
 
     // console.log(checkDuplicate);
     if (cart.length > 3) {
-      console.log("Cant add more then 4 product");
+      setModal({ status: true, error: "You Can't add more then 4 product" });
       return;
     }
 
@@ -27,6 +32,13 @@ const Main = () => {
 
   return (
     <main>
+      {modal.status && (
+        <Modal
+          error={modal.error}
+          close={() => setModal({ status: false, error: "" })}
+        />
+      )}
+
       <Container>
         <div className="text-center mb-5">
           <h1>Choose the Best Backpack</h1>
