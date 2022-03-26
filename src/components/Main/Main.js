@@ -26,7 +26,7 @@ const Main = () => {
             <Products onCart={handleCart} />
           </Col>
           <Col sm md={5} lg={3}>
-            <Cart item={cart} />
+            <Cart items={cart} />
           </Col>
         </Row>
       </Container>
