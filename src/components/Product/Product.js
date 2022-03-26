@@ -7,6 +7,7 @@ const Product = (props) => {
   const { onCart } = props;
 
   const addToCartHandler = (item) => {
+    console.log(item);
     onCart(item);
   };
   return (

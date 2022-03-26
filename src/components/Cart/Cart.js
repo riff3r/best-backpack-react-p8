@@ -1,12 +1,14 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 
 const Cart = ({ items, handleSelected }) => {
-  const [isSelected, setIsSelected] = useState(true);
+  const [isSelected, setIsSelected] = useState(false);
 
-  console.log(items.length);
+  useEffect(() => {
+    items.length <= 1 ? setIsSelected(false) : setIsSelected(true);
+  }, [items]);
 
   const chooseHandler = () => {
     if (!items.length) return;
@@ -26,23 +28,29 @@ const Cart = ({ items, handleSelected }) => {
         <Card.Body>
           {items?.map((product) => (
             <Card.Title
-              className="d-flex justify-content-between align-items-center"
+              className="d-flex justify-content-between align-items-center mb-3"
               key={product.id}
             >
-              {product.name} <FontAwesomeIcon icon={faTrashCan} />{" "}
+              <img width={30} src={product.image} alt="" /> {product.name}{" "}
+              <FontAwesomeIcon icon={faTrashCan} />{" "}
             </Card.Title>
           ))}
 
-          <br />
           {isSelected && (
-            <Button onClick={() => chooseHandler()} variant="outline-success">
+            <Button
+              className="d-block my-3"
+              onClick={() => chooseHandler()}
+              variant="outline-success"
+            >
               Choose One
             </Button>
           )}
 
-          <br />
-          <br />
-          <Button onClick={() => resetCart()} variant="outline-danger">
+          <Button
+            className="d-block my-3"
+            onClick={() => resetCart()}
+            variant="outline-danger"
+          >
             Reset Cart
           </Button>
         </Card.Body>

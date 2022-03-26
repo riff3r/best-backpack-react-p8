@@ -5,8 +5,19 @@ import Products from "../Products/Products";
 
 const Main = () => {
   const [cart, setCart] = useState([]);
+  console.log(cart);
 
   const handleCart = (item) => {
+    const checkDuplicate = cart?.find((cartItem) => cartItem.id === item.id);
+
+    if (checkDuplicate) return;
+
+    // console.log(checkDuplicate);
+    if (cart.length > 3) {
+      console.log("Cant add more then 4 product");
+      return;
+    }
+
     setCart((prevState) => [...prevState, item]);
   };
 
@@ -26,10 +37,10 @@ const Main = () => {
         </div>
 
         <Row>
-          <Col sm md={7} lg={9}>
+          <Col sm md={7} lg={8}>
             <Products onCart={handleCart} />
           </Col>
-          <Col sm md={5} lg={3}>
+          <Col sm md={5} lg={4}>
             <Cart handleSelected={handleSelected} items={cart} />
           </Col>
         </Row>
